@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manav - Admin Panel</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <h1 class="logo">Çukurova Manav</h1>
+      <nav>
+        <a href="index.html">Ana Sayfa</a>
+        <a href="admin.html">Admin</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main">
+    <div class="container">
+      <h2>Yeni Ürün Ekle</h2>
+      
+      <form id="product-form" class="product-form">
+        <div class="form-group">
+          <label for="product-name">Ürün Adı</label>
+          <input type="text" id="product-name" name="name" required>
+        </div>
+
+        <div class="form-group">
+          <label for="product-category">Kategori</label>
+          <select id="product-category" name="category" required>
+            <option value="">Kategori Seçin</option>
+            <option value="meyve">Meyve</option>
+            <option value="sebze">Sebze</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="product-price">Fiyat (TL)</label>
+          <input type="number" id="product-price" name="price" step="0.01" min="0" required>
+        </div>
+
+        <div class="form-group">
+          <label for="product-image">Fotoğraf URL</label>
+          <input type="url" id="product-image" name="image" placeholder="https://..." required>
+          <small>Fotoğraf URL'si girin (örn: https://placehold.co/400x300)</small>
+        </div>
+
+        <button type="submit" class="btn-primary">Ürün Ekle</button>
+      </form>
+
+      <div class="existing-products">
+        <h3>Mevcut Ürünler</h3>
+        <div id="admin-products-container" class="products-grid">
+          <!-- Mevcut ürünler buraya yüklenecek -->
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

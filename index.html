@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Çukurova Manav </title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="container">
+      <h1 class="logo">Çukurova Manav</h1>
+      <nav>
+        <a href="admin.html">Admin</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="main">
+    <div class="container">
+      <!-- Ana Sayfa Kartları -->
+      <div id="home-view" class="home-view">
+        <div class="category-cards">
+          <div class="category-card" data-category="meyve">
+            <div class="category-card-image">
+              <img src="https://placehold.co/600x400/FF6B6B/ffffff?text=Meyveler" alt="Meyveler">
+            </div>
+            <div class="category-card-content">
+              <h2>Meyveler</h2>
+              <p>Taze ve lezzetli meyveler</p>
+            </div>
+          </div>
+          
+          <div class="category-card" data-category="sebze">
+            <div class="category-card-image">
+              <img src="https://placehold.co/600x400/51CF66/ffffff?text=Sebzeler" alt="Sebzeler">
+            </div>
+            <div class="category-card-content">
+              <h2>Sebzeler</h2>
+              <p>Doğal ve sağlıklı sebzeler</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ürün Listesi Görünümü -->
+      <div id="products-view" class="products-view" style="display: none;">
+        <div class="back-button-container">
+          <button id="back-button" class="back-btn">← Ana Sayfaya Dön</button>
+          <h2 id="category-title" class="category-title"></h2>
+        </div>
+        <div id="products-container" class="products-grid">
+          <!-- Ürünler buraya yüklenecek -->
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

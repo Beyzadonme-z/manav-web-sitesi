@@ -31,13 +31,37 @@ function deleteProduct(id) {
   saveProducts(products);
 }
 
+// Resim yolunu düzelt (boşlukları ve özel karakterleri encode et)
+function encodeImagePath(imagePath) {
+  // Eğer zaten http:// veya https:// ile başlıyorsa olduğu gibi bırak
+  if (imagePath.startsWith('http://') || imagePath.startsWith('https://')) {
+    return imagePath;
+  }
+  
+  // Yerel dosya yolu ise, sadece dosya adını encode et
+  const lastSlashIndex = imagePath.lastIndexOf('/');
+  if (lastSlashIndex === -1) {
+    // Klasör yok, sadece dosya adı var
+    return encodeURIComponent(imagePath);
+  }
+  
+  // Klasör yolunu ve dosya adını ayır
+  const folderPath = imagePath.substring(0, lastSlashIndex + 1); // '/' dahil
+  const fileName = imagePath.substring(lastSlashIndex + 1);
+  
+  // Sadece dosya adını encode et
+  return folderPath + encodeURIComponent(fileName);
+}
+
 // Ürün kartı HTML oluştur
 function createProductCard(product, showDelete = false) {
   const categoryLabel = product.category === 'meyve' ? 'Meyve' : product.category === 'sebze' ? 'Sebze' : '';
+  const imagePath = encodeImagePath(product.image);
+  
   return `
     <div class="product-card">
       <div class="product-image">
-        <img src="${product.image}" alt="${product.name}" onerror="this.src='https://placehold.co/400x300/e0e0e0/999999?text=Resim+Yok'">
+        <img src="${imagePath}" alt="${product.name}" onerror="console.error('Resim yüklenemedi: ${product.image}'); this.src='https://placehold.co/400x300/e0e0e0/999999?text=Resim+Yok';">
         ${categoryLabel ? `<span class="product-category-badge">${categoryLabel}</span>` : ''}
       </div>
       <div class="product-info">

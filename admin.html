@@ -42,9 +42,12 @@
         </div>
 
         <div class="form-group">
-          <label for="product-image">Fotoğraf URL</label>
-          <input type="url" id="product-image" name="image" placeholder="https://..." required>
-          <small>Fotoğraf URL'si girin (örn: https://placehold.co/400x300)</small>
+          <label for="product-image">Fotoğraf</label>
+          <input type="text" id="product-image" name="image" placeholder="images/elma.jpg veya https://..." required>
+          <small>
+            <strong>Yerel resim için:</strong> Resminizi "images" klasörüne kopyalayın ve "images/dosya-adi.jpg" şeklinde girin.<br>
+            <strong>Online resim için:</strong> Tam URL girin (örn: https://placehold.co/400x300)
+          </small>
         </div>
 
         <button type="submit" class="btn-primary">Ürün Ekle</button>
